@@ -1,0 +1,93 @@
+:root{
+  --bg: #f7f7fb;         /* 1: color variables for easy theme changes */
+  --card: #fff;
+  --accent: #0073e6;
+  --muted: #666;
+}
+
+*{box-sizing:border-box} /* 2: consistent sizing model */
+body{
+  margin:0;
+  font-family:Inter, system-ui, Arial, sans-serif; /* 3: fallback fonts */
+  background:var(--bg);
+  color:#222;
+}
+
+.site-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 24px;
+  background:white;
+  box-shadow:0 2px 6px rgba(0,0,0,0.06);
+}
+
+.products-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 4: responsive grid */
+  gap:18px;
+  padding:24px;
+  flex:1;
+}
+
+.product-card{
+  background:var(--card);
+  padding:14px;
+  border-radius:10px;
+  box-shadow:0 6px 14px rgba(0,0,0,0.05);
+  text-align:center;
+}
+
+.product-card img{
+  width:100%;
+  border-radius:8px;
+  height:140px;
+  object-fit:cover; /* 5: keep image aspect and crop if needed */
+}
+
+.product-card h3{ margin:10px 0 6px; font-size:1.05rem }
+.product-card p.price{ font-weight:700; color:var(--accent) }
+.product-card .btn{ margin-top:10px; }
+
+.btn{
+  padding:8px 12px;
+  border-radius:8px;
+  border: none;
+  cursor:pointer;
+  background:#ddd;
+}
+
+.btn.primary{
+  background:var(--accent);
+  color:white;
+}
+
+.main{
+  display:flex;
+  gap:20px;
+  padding:16px;
+}
+
+/* Cart sidebar */
+.cart{
+  width:320px;
+  background:var(--card);
+  padding:16px;
+  border-radius:10px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.08);
+  height:fit-content;
+}
+
+.hidden{ display:none; }  /* used to hide the cart on page load */
+
+.cart-items{ list-style:none; padding:0; margin:0; max-height:360px; overflow:auto; }
+.cart-item{ display:flex; gap:10px; align-items:center; padding:8px 0; border-bottom:1px solid #f0f0f5; }
+.cart-item img{ width:56px; height:56px; object-fit:cover; border-radius:6px; }
+.qty-controls{ display:flex; gap:6px; align-items:center; margin-left:auto; }
+.qty-controls button{ padding:4px 8px; }
+
+/* Responsive: on small screens stack cart below products and hide by default */
+@media (max-width:900px){
+  .main{ flex-direction:column; }
+  .cart{ width:100%; }
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />                         <!-- 1: Use UTF-8 charset so emojis and all chars render correctly -->
+  <meta name="viewport" content="width=device-width,initial-scale=1" /> <!-- 2: Make page responsive on mobiles -->
+  <title>Mini E-Shop</title>                      <!-- 3: The text shown in browser tab -->
+  <link rel="stylesheet" href="shop.css" />      <!-- 4: Link to CSS file -->
+</head>
+<body>
+  <header class="site-header">                     <!-- 5: Top site header -->
+    <h1>Mini E-Shop</h1>                           <!-- 6: Brand/title -->
+    <button id="cart-toggle" class="cart-btn">Cart (<span id="cart-count">0</span>)</button>
+                                                   <!-- 7: Cart toggle button with count (cart-count updated by JS) -->
+  </header>
+
+  <main class="main">                              <!-- 8: Main container holds product grid + cart -->
+    <section id="products" class="products-grid">
+      <!-- product cards rendered by JS -->
+    </section>
+
+    <aside id="cart" class="cart hidden">           <!-- 9: Cart sidebar; 'hidden' class toggles visibility -->
+      <h2>Shopping Cart</h2>
+      <ul id="cart-items" class="cart-items"></ul>  <!-- 10: Cart items inserted by JS -->
+      <div class="cart-footer">
+        <p>Total: ₹<span id="cart-total">0.00</span></p> <!-- 11: Total price updated by JS -->
+        <button id="clear-cart" class="btn">Clear Cart</button>
+        <button id="checkout" class="btn primary">Checkout</button>
+      </div>
+    </aside>
+  </main>
+
+  <script src="shop.js" defer></script>          <!-- 12: Include JS; 'defer' runs after DOM loads -->
+</body>
+</html>
